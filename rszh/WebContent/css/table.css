@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+#smallTools{
+	width:700px;
+	height:20px;	
+	font-size:10px;
+}
+#smallTools button{
+	background:white;
+	border:0px;
+}
+#smallTools ul li{
+	list-style-type:none;
+	float:left;	
+}
+
+#mainData{
+	width:720px;
+	height:450px;
+	font-size:12px;          /*表格里的字体大小*/
+	margin-top:5px;
+	overflow:auto;              /*当表格的宽度超过mainData容器的宽度时，会自动显示滚动条*/
+}
+#mainTable{
+	/*border:1px solid black;*/
+	}
+#mainData td{
+    min-width:100px;      /*指定每一列的宽度  表的列名不能超过六个字*/
+	 white-space:nowrap;     /*表格中增加列时，当表格的宽度超过容器的宽度时，不会压缩已有列的宽度。*/	 
+	}
+#mainData tr{
+	background-color:white;
+	text-align:center;          /*让单元格中的内容水平居中*/
+	}
+#fenYe{
+	width:700px;
+	height:25px;
+	font-size:12px;
+
+}
+#fenYe button{
+	width:40px;
+	height:20px;
+	margin:0px 5px;
+}
+#fenYe #btnOne{
+	background-image:url(../images/first.gif);
+}
+#fenYe #btnTwo{
+	width:46px;
+	background-image:url(../images/back.gif);
+}
+#fenYe #btnThree{
+	width:46px;
+	background-image:url(../images/next.gif);
+}
+#fenYe #btnFour{
+	background-image:url(../images/last.gif);
+}
+#fenYe #btnFive{
+	background-image:url(../images/go.gif);
+}

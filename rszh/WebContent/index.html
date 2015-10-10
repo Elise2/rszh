@@ -1,0 +1,132 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>人事档案管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />-->
+    <!--为了消灭BUG，从上面这个样式中找到需要的文本框和button样式，写到下面的样式文件中-->
+    <link rel="stylesheet" type="text/css" href="css/index-extra.css" />   
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/ckform.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <style type="text/css">
+    	#headTwo a:hover{
+    		color:#f60;
+    		text-decoration:none;
+    		}
+    	#headTwo a{
+    		padding-left:10px;font-size:16px;color:#c1d5ec;
+    		}   
+    	#sousuo{
+    		margin:top:0px;
+    		}
+    	#keywords{
+    		width:206px;
+    		height:25px;
+    		margin-bottom: 0px;
+    		}
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="dl-title">
+          人事档案管理系统
+        <!--<img src="/chinapost/Public/assets/img/top.png">-->
+    </div>
+
+    <div class="dl-log">欢迎您，<span class="dl-log-user">root</span><a href="/chinapost/index.php?m=Public&a=logout" title="重新登录" class="dl-log-quit">[重新登录]</a> 
+    	                                                               <a href="/chinapost/index.php?m=Public&a=logout" title="退出系统" class="dl-log-quit">[退出]</a>
+    </div>
+    <div style="clear:both;text-align:center;background:#453D7A;border:1px solid #453D7A" id="headTwo">   	
+    	<form action="/serchLike?tableName=personal" method="post">	
+    	<input type="text" name="keywords" id="keywords"/>
+    	<button type="submit" class="btn btn-primary" id="sousuo">搜索</button>&nbsp;&nbsp;
+    	<a href="/chaXunKongZhi" class="btn btn-success" name="gjcx" id="gjcx">高级查询</a>  	 	
+      </form>   		   	
+    </div>    
+</div>
+<div class="content">
+    <div class="dl-main-nav">
+        <div class="dl-inform"><div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div></div>
+        <ul id="J_Nav"  class="nav-list ks-clear">
+        	  <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">首页</div></li>
+            <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">用户管理</div></li>
+            <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">人事设置</div></li>
+			      <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">人事管理</div></li>
+			      <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">导入导出 </div></li>
+			      <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">打印 </div></li>
+			      <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">数据维护 </div></li>
+			      <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">统计与提醒 </div></li>
+			      <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">辅助工具 </div></li>		      	      
+        </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten">
+
+    </ul>
+</div>
+<script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="assets/js/bui-min.js"></script>
+<script type="text/javascript" src="assets/js/common/main-min.js"></script>
+<script type="text/javascript" src="assets/js/config-min.js"></script>
+<script>
+    BUI.use('common/main',function(){
+       var config = [{id:'1',homePage:'37',menu:[{text:'首页',items:[{id:'37',text:'今日提醒',href:'/todayNotes.html'},
+                                                                   {id:'38',text:'显示人员列表',href:'/showPersonal'},
+                                                                   {id:'38',text:'新增人员',href:'/xinzengServletRequest'}]}
+        			]},
+                {id:'2',menu:[{text:'用户管理',items:[{id:'3',text:'修改密码',href:'User/index.html'}]}
+        			]},
+        			  {id:'4',menu:[{text:'人事设置',items:[{id:'6',text:'部门设置',href:'bmszServlet?parentId=1'},
+        			  	                                                     {id:'7',text:'类别设置',href:'lbszServlet'},
+        			                               						               {id:'8',text:'档案设置',href:'daszServlet?tableName=personal'},
+        			                               						               {id:'9',text:'记录设置',href:'jlszServlet'}]}
+        			]},
+        			  {id:'10',menu:[{text:'人事管理',items:[{id:'12',text:'人事记录',href:'/jlszServletRequest'},
+        			                                     {id:'35',text:'部门变动',href:'/rsbdServlet?tableName=personal'},
+	                                                     {id:'36',text:'类别变动',href:'/lbbdServlet?tableName=personal'}]}
+        			]},
+        			{id:'38',menu:[{text:'导入导出',items:[{id:'39',text:'导入',href:'/import_export/import.jsp'},
+	                                                     {id:'40',text:'导出',href:'/daochuFirstServlet?tableName=personal'}
+	                                                     ]}
+                    ]},
+                    {id:'41',menu:[{text:'打印',items:[{id:'42',text:'打印人员列表',href:'/dayinBaoFirstServlet?tableName=personal'},
+                                                     {id:'43',text:'打印人员基本档案',href:'/dayinGerenServlet'},
+                                                     {id:'45',text:'打印档案和培训记录',href:'/dayinPeixunServlet'},
+                                                     {id:'46',text:'打印厂牌',href:'/dayinChangServlet'},
+	                                                 {id:'44',text:'打印任务管理',href:'#'}
+	                                                 ]}
+                    ]},
+        			  {id:'13',menu:[{text:'数据维护',items:[{id:'15',text:'数据备份',href:'/beifenhuanyuan/beifen.jsp'},
+        			  	                                                     {id:'16',text:'数据还原',href:'/beifenhuanyuan/huanyuan_index.jsp'},
+        			                               						               {id:'18',text:'初始化数据库',href:'#'}]}
+        			]},
+        			  {id:'20',menu:[{text:'统计与提醒',items:[{id:'22',text:'分类统计',href:'#'},
+        			  	                                                     {id:'23',text:'自定义统计',href:'#'},
+        			                               						               {id:'24',text:'多条件查询统计',href:'#'},
+        			                               						               {id:'25',text:'员工生日提醒',href:'#'},
+        			                               						               {id:'26',text:'奖惩提醒',href:'#'},
+        			                               						               {id:'27',text:'自定义提醒',href:'#'}]}
+        			]},
+        			{id:'28',menu:[{text:'辅助工具',items:[{id:'30',text:'日常记事',href:'#'},
+        			  	                                                   {id:'31',text:'通讯录',href:'#'},        			                               						                 			                               						              
+        			                               						             {id:'32',text:'会议记录',href:'#'}]}
+        			]}];
+        new PageUtil.MainPage({
+            modulesConfig : config
+        });
+    });
+</script>
+<div style="text-align:center;">
+<p>版权：<a href="http://www.ccec.edu.cn/" target="_blank">山东工商学院 信息管理与信息系统教研室</a></p>
+</div>
+</body>
+</html>
